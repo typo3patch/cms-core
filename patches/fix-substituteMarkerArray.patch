@@ -1,0 +1,14 @@
+#@ https://github.com/xerc
+#! https://forge.typo3.org/issues/104590
+--- cms-core/Classes/Service/MarkerBasedTemplateService.bak	2024-12-07 18:32:48.292515642 +0100
++++ cms-core/Classes/Service/MarkerBasedTemplateService.php	2024-12-06 22:21:58.290073641 +0100
+@@ -208,6 +208,9 @@
+             $search = [];
+             $replace = [];
+             foreach ($markContentArray as $marker => $markContent) {
++                if (is_array($markContent)) {
++                    continue;
++                }
+                 if ($uppercase) {
+                     // use strtr instead of strtoupper to avoid locale problems with Turkish
+                     $marker = strtr($marker, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');

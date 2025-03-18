@@ -1,0 +1,38 @@
+{
+  "name": "typo3patch/cms-core",
+  "type": "metapackage",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://typo3patch.github.io",
+  "support": {
+    "issues": "https://github.com/typo3patch/cms-core/issues",
+    "source": "https://github.com/typo3patch/cms-core"
+  },
+  "authors": [
+    {
+      "role": "Developer",
+      "name": "Marcus Förster",
+      "homepage": "https://github.com/xerc"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": "^10.4 || ^11.5 || ^12.4 || ^13.4",
+    "cweagans/composer-patches": "*"
+  },
+  "require-dev": {
+    "symplify/vendor-patches": "*"
+  },
+  "extra": {
+    "patches": {
+      "typo3/cms-core": {
+        "[FIX] error @ str_replace": "https://raw.githubusercontent.com/typo3patch/cms-core/refs/heads/10.4.x/patches/fix-substituteMarkerArray.patch"
+      }
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "cweagans/composer-patches": true,
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    }
+  }
+}
